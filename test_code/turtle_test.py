@@ -50,8 +50,10 @@ import tkinter as tk
  
  
 def do_stuff():
+    my_lovely_turtle.setpos(100,200)
     for color in ["red", "yellow", "green"]:
         my_lovely_turtle.color(color)
+        
         my_lovely_turtle.right(120)
  
  

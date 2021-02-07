@@ -1,0 +1,10 @@
+Axolotl Studio :: Local Documentation
+
+File Types:
+
+    Single Image:
+        Color:
+        TTY:
+    Animation:
+        Color:
+        TTY:
