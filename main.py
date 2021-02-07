@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 from tkinter import Button, Tk, Menu, Canvas
 from tkinter import colorchooser, simpledialog
+from tkinter import messagebox
 
 
 top = Tk()
-top.title('OpenPxl')
+top.title('Axolotl Studio')
 
 
 # Globals
@@ -12,7 +13,9 @@ bgcolor = 'white'
 bgsize = {'x': 100, 'y': 100}
 scale = 10
 
-
+def showAbout():
+    messagebox.showinfo("Information","Informative message")
+    
 def setScale():
     answer = simpledialog.askstring(title="Set image size",
                                     prompt="Width and Height(Comma separated)")
@@ -37,7 +40,7 @@ def setSize():
 
 
 def chooseColor():  # variable to store hexadecimal code of color
-    color_code = colorchooser.askcolor(title="Choose color"))
+    color_code = colorchooser.askcolor(title="Choose color")
     global bgcolor
     bgcolor = color_code[-1]
 
@@ -80,15 +83,15 @@ menubar.add_cascade(label="Mode", menu=mode)
 background = Menu(menubar, tearoff=0)
 
 background.add_command(label="Background Color", command=chooseColor)
-background.add_command(label="Image Size", command=setSize)
-background.add_command(label="Image Size", command=setScale)
+background.add_command(label="Image Size (Pixels)", command=setSize)
+background.add_command(label="Square to Pixel scale", command=setScale)
 
 menubar.add_cascade(label="Options", menu=background)
 
 halp = Menu(menubar, tearoff=0)
-halp.add_command(label="About")
-menubar.add_cascade(label="Help", menu=help)
+halp.add_command(label="About", command=showAbout)
+menubar.add_cascade(label="Help", menu=halp)
 
-top.state('zoomed')
+top.attributes('-zoomed', True)
 top.config(menu=menubar)
 top.mainloop()
