@@ -14,6 +14,7 @@ top.title('Axolotl Studio')
 bgcolor = 'white'
 bgsize = {'x': 100, 'y': 100}
 scale = 10
+canvas='nocanvas'
 
 
 def showAbout():
@@ -72,10 +73,15 @@ def chooseColor():
     bgcolor = color_code[-1]
 
 
-def newFile():
+def newColorImage():
     setSize()
     setScale()
     chooseColor()
+    global canvas
+    try:
+        canvas.destroy()
+    except Exception:
+        pass
     canvas = Canvas(top, width=bgsize['x'], height=bgsize['y'], bg=bgcolor)
     canvas.pack()
 
@@ -84,7 +90,7 @@ menubar = Menu(top)
 file = Menu(menubar, tearoff=0)
 mode = Menu(file, tearoff=0)
 
-mode.add_command(label="Single Image (Color Mode)")
+mode.add_command(label="Single Image (Color Mode)", command=newColorImage)
 mode.add_command(label="Single Image (TTY Mode)")
 mode.add_command(label="Animation (Color Mode)")
 mode.add_command(label="Animation (TTY Mode)")
