@@ -29,3 +29,5 @@ WIP
 * Make single image color mode
 * make single image tty mode
 * add movie file support for pypge
+* make build script
+* figure out the animation bit and tabs in pysimplegui
